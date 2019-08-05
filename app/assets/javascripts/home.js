@@ -1,19 +1,22 @@
-var x = document.getElementById(('error-message'));
-
 function getLocation() {
+    const x = document.getElementById('error-message');
+
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(success, error);
     } else {
+        x.style.display='block';
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
 function success(position) {
-    var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
+    let cookie_val = position.coords.latitude + "|" + position.coords.longitude;
     // console.log(Cookies.get('lat_lng')); // => 'value'
     window.location = '/?lat_long=' + encodeURI(cookie_val);
 }
 
 function error(error) {
+    const x = document.getElementById('error-message');
+    x.style.display='block';
     switch(error.code) {
         case error.PERMISSION_DENIED:
             x.innerHTML = "User denied the request for Geolocation.";

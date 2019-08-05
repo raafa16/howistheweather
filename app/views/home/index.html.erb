@@ -1,11 +1,10 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container text-center">
     <h1 class="display-4">How is the weather?</h1>
-    <p id="error-message"></p>
   </div>
 
   <% if @lat_lang.present? %>
-    <%= @lat_lang %>
+    <%= @output %>
 <% else %>
     <script>
         getLocation();
