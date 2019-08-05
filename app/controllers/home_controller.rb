@@ -3,8 +3,15 @@ class HomeController < ApplicationController
     require 'net/http'
     require 'json'
 
+    puts "params #{params}"
+    if params[:lat_long].present?
+      @lat_lang = params[:lat_long].split("|")
+    end
+  end
+
+  def zipcode
     @url =
-      "http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=46239&distance=25&API_KEY=#{ENV["airnow_api_key"] ||  Rails.application.credentials[:airnow][:API_KEY]}"
+        "http://api.openweathermap.org/data/2.5/weather?zip=#{zipcode},us&appid=#{Rails.application.credentials[:openweather][:API_KEY]}"
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
     @output = JSON.parse(@response)
