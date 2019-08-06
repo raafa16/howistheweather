@@ -15,6 +15,15 @@ class HomeController < ApplicationController
   end
 
   def zipcode
+    if params[:zipcode].present?
+      @zipcode = params[:zipcode]
+      @url =
+          "http://api.openweathermap.org/data/2.5/weather?zip=#{@zipcode},us&appid=#{Rails.application.credentials[:openweather][:API_KEY]}&units=imperial"
+      @uri = URI(@url)
+      @response = Net::HTTP.get(@uri)
+      @output = JSON.parse(@response)
+    else
+    end
 
   end
 end
