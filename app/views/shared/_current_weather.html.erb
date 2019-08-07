@@ -1,4 +1,4 @@
-<div class="card text-center">
+<div id="current-weather" class="card text-center">
   <div class="card-header">
     Today's weather in <span class="city"><%= current_weather['name'] %>, <%= current_weather['sys']['country'] %></span> | <span class="date"><%= Time.at(current_weather['dt']).to_formatted_s(:long) %></span>
   </div>
@@ -7,7 +7,7 @@
     <p class="card-text"><span class="description"><%= current_weather['weather'][0]['description']%> | </span><span class="high">High: <%= current_weather['main']['temp_max'] %> °F</span> | <span class="high">Low: <%= current_weather['main']['temp_min'] %> °F</span></p>
     <!--      <a href="#forecast" class="btn btn-primary">Check out the weather forecast for the next 3 days.</a>-->
   </div>
-  <div class="card-footer text-muted">
+  <div class="card-footer">
     <span class="pressure">Pressure: <%= current_weather['main']['pressure']%> hpa</span> | <span class="pressure"> Humidity: <%= current_weather['main']['humidity']%> %</span> | <span class="sunrise"> Sunrise: <%= Time.at(current_weather['sys']['sunrise']).to_formatted_s(:long) %></span> | <span class="sunset"> Sunset: <%= Time.at(current_weather['sys']['sunset']).to_formatted_s(:long) %></span>
   </div>
 </div>
