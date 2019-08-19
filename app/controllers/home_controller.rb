@@ -1,8 +1,5 @@
 class HomeController < ApplicationController
   def geolocation
-    require 'net/http'
-    require 'json'
-
     if params[:lat_long].present?
       @lat_lang = params[:lat_long].split("|")
       weather_url =

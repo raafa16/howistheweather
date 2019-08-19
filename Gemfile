@@ -5,6 +5,8 @@ ruby '2.6.3'
 
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
